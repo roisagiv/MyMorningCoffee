@@ -43,3 +43,5 @@ declare module '@storybook/react-native' {
 
     export function getStorybookUI(options: { port: number; onDeviceUI: boolean }): any;
 }
+
+declare module 'react-native-paper'

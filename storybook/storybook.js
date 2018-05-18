@@ -1,9 +1,22 @@
 /* eslint-disable global-require */
-import { configure, getStorybookUI } from '@storybook/react-native';
+import { configure, getStorybookUI, addDecorator } from '@storybook/react-native';
 import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
+import { AppRegistry, View } from 'react-native';
+import { Button, Provider as PaperProvider } from "react-native-paper";
 import { loadStories } from './storyLoader';
 
+
+addDecorator(story => (
+    <PaperProvider>
+        <View style={{
+            flex: 1,
+            justifyContent: 'center',
+            backgroundColor: '#F5FCFF',
+        }}>
+            {story()}
+        </View>
+    </PaperProvider>
+));
 
 // import stories
 configure(() => {

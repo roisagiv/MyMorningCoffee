@@ -10,26 +10,29 @@
     "open-sim": "open -a Simulator",
     "test": "jest",
     "lint": "tslint -c tslint.json -p tsconfig.json",
+    "lint:fix": "tslint -c tslint.json -p tsconfig.json --fix",
     "start-storybook": "storybook start -p 7007 --skip-packager",
     "storybook": "storybook start -p 7007",
     "prestorybook": "rnstl"
   },
   "dependencies": {
     "react": "16.3.2",
-    "react-native": "0.55.4"
+    "react-native": "0.55.4",
+    "react-native-paper": "1.8.0",
+    "react-native-vector-icons": "4.6.0"
   },
   "devDependencies": {
-    "@storybook/react-native": "3.4.4",
+    "@storybook/react-native": "3.4.5",
     "@types/jest": "22.2.3",
     "@types/react": "16.3.14",
     "@types/react-native": "0.55.14",
     "@types/react-test-renderer": "16.0.1",
     "@types/storybook__react": "3.0.7",
-    "babel-jest": "22.4.3",
+    "babel-jest": "22.4.4",
     "babel-preset-react-native": "4.0.0",
     "concurrently": "3.5.1",
     "eslint": "4.19.1",
-    "jest": "22.4.3",
+    "jest": "22.4.4",
     "prettier": "1.12.1",
     "react-dom": "16.3.2",
     "react-native-storybook-loader": "1.8.0",
