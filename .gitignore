@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/reactnative
 
 ### ReactNative ###
@@ -233,3 +232,6 @@ fastlane/test_output
 
 # XCode index
 Index/
+
+# react-native-config
+.env

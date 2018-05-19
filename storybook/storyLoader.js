@@ -6,12 +6,14 @@
 
 function loadStories() {
   require('../src/Components/NewsItem.stories');
-
+  require('../src/Components/TopNewsList.stories');
+  
 }
 
 const stories = [
   '../src/Components/NewsItem.stories',
-
+  '../src/Components/TopNewsList.stories',
+  
 ];
 
 module.exports = {
