@@ -12,17 +12,18 @@ import { INewsItem } from "../Models/NewsItem";
 
 interface IProps {
   newsItem: INewsItem;
+  onPress: () => void;
 }
 
 const NewsItem: React.SFC<IProps> = props => {
-  const { newsItem } = props;
+  const { newsItem, onPress } = props;
   const time = timeago().format(newsItem.publishedAt);
   const imageUrl = newsItem.urlToImage
     ? { source: { uri: newsItem.urlToImage } }
     : {};
 
   return (
-    <Card elevation={0} style={{ margin: 0 }}>
+    <Card elevation={0} onPress={onPress}>
       <ListItem title={newsItem.source.name} description={time} />
       <CardCover {...imageUrl} />
       <CardContent>

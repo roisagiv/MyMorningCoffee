@@ -1,8 +1,9 @@
 package com.mymorningcoffee;
 
 import com.facebook.react.ReactActivity;
+import com.reactnativenavigation.NavigationActivity;
 
-public class MainActivity extends ReactActivity {
+public class MainActivity extends NavigationActivity {
 
     /**
      * Returns the name of the main component registered from JavaScript.

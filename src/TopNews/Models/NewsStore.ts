@@ -2,14 +2,14 @@ import { AxiosPromise, AxiosResponse } from "axios";
 import { flow, getEnv, types } from "mobx-state-tree";
 import INewsAPIService, {
   ITopHeadlinesResponse
-} from "../Services/NewsAPIService";
+} from "../../Services/NewsAPIService";
 import { NewsItemModel } from "./NewsItem";
 
 export const NewsStore = types
   .model({
     error: types.maybe(types.string),
     items: types.optional(types.array(NewsItemModel), []),
-    loading: types.optional(types.boolean, false)
+    loading: types.optional(types.boolean, true)
   })
   .actions(self => {
     const setLoading = (loading: boolean) => {

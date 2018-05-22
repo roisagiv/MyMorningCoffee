@@ -2,7 +2,7 @@
 import Faker from "faker";
 import { when } from "mobx";
 import nock from "nock";
-import { NewsAPIService } from "../../Services/NewsAPIService";
+import { NewsAPIService } from "../../../Services/NewsAPIService";
 import { NewsStore } from "../NewsStore";
 
 it("can create items in store", () => {

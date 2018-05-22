@@ -1,13 +1,15 @@
 /* eslint-disable global-require */
 import { configure, getStorybookUI, addDecorator } from '@storybook/react-native';
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
-import { Button, Provider as PaperProvider } from "react-native-paper";
+import { View } from 'react-native';
+import { Provider as PaperProvider } from "react-native-paper";
 import { loadStories } from './storyLoader';
+
+import { DefaultTheme } from "../src/Theme/DefaultTheme";
 
 
 addDecorator(story => (
-    <PaperProvider>
+    <PaperProvider theme={DefaultTheme}>
         <View style={{
             flex: 1,
             justifyContent: 'center',
@@ -35,5 +37,5 @@ class StorybookUIHMRRoot extends Component {
     }
 }
 
-AppRegistry.registerComponent('MyMorningCoffee', () => StorybookUIHMRRoot);
+
 export default StorybookUIHMRRoot;
