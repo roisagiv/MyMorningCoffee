@@ -7,14 +7,15 @@ import {
 
 interface IToolbarProps {
   title: string;
+  subtitle?: string;
   onBack: () => void;
 }
 
-const Toolbar: React.SFC<IToolbarProps> = ({ title, onBack }) => {
+const Toolbar: React.SFC<IToolbarProps> = ({ title, onBack, subtitle }) => {
   return (
     <PaperToolBar>
       <ToolbarBackAction onPress={onBack} />
-      <ToolbarContent title={title} />
+      <ToolbarContent title={title} subtitle={subtitle} />
     </PaperToolBar>
   );
 };

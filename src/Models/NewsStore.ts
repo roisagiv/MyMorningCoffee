@@ -2,7 +2,7 @@ import { AxiosPromise, AxiosResponse } from "axios";
 import { flow, getEnv, types } from "mobx-state-tree";
 import INewsAPIService, {
   ITopHeadlinesResponse
-} from "../../Services/NewsAPIService";
+} from "../Services/NewsAPIService";
 import { NewsItemModel } from "./NewsItem";
 
 export const NewsStore = types

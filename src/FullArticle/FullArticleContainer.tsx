@@ -1,19 +1,26 @@
 import { inject, observer } from "mobx-react";
 import React from "react";
 import { WebView } from "react-native";
-import { INewsStore } from "../TopNews/Models/NewsStore";
+import ActivityIndicator from "../Components/ActivityIndicator";
+import { INewsItem, INewsStore } from "../Models";
 
 interface IProps {
-  store?: INewsStore;
+  item?: INewsItem;
 }
 
 class FullArticleContainer extends React.Component<IProps, {}> {
   public render() {
-    const { store } = this.props;
+    const { item } = this.props;
     return (
-      <WebView source={{ uri: "https://github.com/facebook/react-native" }} />
+      <WebView
+        source={{ uri: item.url }}
+        startInLoadingState={true}
+        renderLoading={this.renderLoading}
+      />
     );
   }
+
+  private renderLoading = () => <ActivityIndicator />;
 }
 
 export default inject(allStores => allStores)(observer(FullArticleContainer));

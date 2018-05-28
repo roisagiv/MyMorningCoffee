@@ -51,7 +51,7 @@
     "nock": "9.2.6",
     "patch-package": "^5.1.1",
     "postinstall-prepare": "^1.0.1",
-    "prettier": "1.12.1",
+    "prettier": "1.13.0",
     "react-dom": "16.3.2",
     "react-native-storybook-loader": "1.8.0",
     "react-native-typescript-transformer": "1.2.9",

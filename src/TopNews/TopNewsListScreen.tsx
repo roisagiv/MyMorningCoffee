@@ -2,10 +2,10 @@ import { Provider as MobxProvider } from "mobx-react";
 import React from "react";
 import { Navigation } from "react-native-navigation";
 import { Provider as PaperProvider } from "react-native-paper";
+import { INewsItem, INewsStore } from "../Models";
 import store from "../Models/RootStore";
 import { Screens } from "../Screens";
 import { DefaultTheme } from "../Theme/DefaultTheme";
-import { INewsStore } from "../TopNews/Models/NewsStore";
 import Toolbar from "./Components/Toolbar";
 import TopNewsListContainer from "./TopNewsListContainer";
 
@@ -30,11 +30,12 @@ export class TopNewsListScreen extends React.Component<IProps, {}> {
     );
   }
 
-  private onNewsItemPress = () => {
+  private onNewsItemPress = (item: INewsItem) => {
     Navigation.push(this.props.componentId, {
       component: {
         id: Screens.fullArticle.id,
-        name: Screens.fullArticle.name
+        name: Screens.fullArticle.name,
+        passProps: { newsItem: item }
       }
     });
   };

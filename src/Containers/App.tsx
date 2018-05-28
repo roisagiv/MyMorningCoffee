@@ -1,6 +1,5 @@
 import { Navigation } from "react-native-navigation";
 import registerScreens, { Screens } from "../Screens";
-import { Font } from "../Theme/Fonts";
 
 export default function start() {
   registerScreens();

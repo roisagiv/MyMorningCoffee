@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react-native";
 import Faker from "faker";
 import React from "react";
 
-import { INewsItem } from "../Models/NewsItem";
+import { INewsItem } from "../../Models";
 import TopNewsList from "./TopNewsList";
 
 storiesOf("TopNewsList", module)

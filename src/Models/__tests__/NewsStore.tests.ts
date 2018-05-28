@@ -2,8 +2,8 @@
 import Faker from "faker";
 import { when } from "mobx";
 import nock from "nock";
-import { NewsAPIService } from "../../../Services/NewsAPIService";
-import { NewsStore } from "../NewsStore";
+import { NewsStore } from "../";
+import { NewsAPIService } from "../../Services/NewsAPIService";
 
 it("can create items in store", () => {
   const length = 4;

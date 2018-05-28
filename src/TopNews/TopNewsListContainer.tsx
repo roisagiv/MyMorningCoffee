@@ -1,13 +1,11 @@
 import { inject, observer } from "mobx-react";
 import React from "react";
-import { Navigation } from "react-native-navigation";
-import { Screens } from "../Screens";
-import { INewsStore } from "../TopNews/Models/NewsStore";
+import { INewsItem, INewsStore } from "../Models";
 import TopNewsList from "./Components/TopNewsList";
 
 interface IProps {
   store?: INewsStore;
-  onNewsItemPress?: () => void;
+  onNewsItemPress?: (item: INewsItem) => void;
 }
 
 class TopNewsListContainer extends React.Component<IProps, {}> {

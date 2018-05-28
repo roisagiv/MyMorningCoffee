@@ -1,6 +1,6 @@
 import Config from "react-native-config";
 import { NewsAPIService } from "../Services/NewsAPIService";
-import { NewsStore } from "../TopNews/Models/NewsStore";
+import { NewsStore } from "./NewsStore";
 
 const createStore = () => {
   const api = new NewsAPIService(Config.NEWS_API_BASE_URL, Config.NEWS_API_KEY);

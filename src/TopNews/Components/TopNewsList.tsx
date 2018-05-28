@@ -1,20 +1,14 @@
 import * as React from "react";
-import {
-  ActivityIndicator,
-  FlatList,
-  ListRenderItemInfo,
-  Platform,
-  View
-} from "react-native";
+import { FlatList, ListRenderItemInfo } from "react-native";
 import { Divider } from "react-native-paper";
-import { DefaultTheme } from "../../Theme/DefaultTheme";
-import { INewsItem } from "../Models/NewsItem";
+import ActivityIndicator from "../../Components/ActivityIndicator";
+import { INewsItem } from "../../Models";
 import NewsItem from "./NewsItem";
 
 interface IProps {
   news: INewsItem[];
   loading?: boolean;
-  onPress?: () => void;
+  onPress?: (item: INewsItem) => void;
 }
 
 export default class TopNewsList extends React.Component<IProps> {
@@ -44,21 +38,6 @@ export default class TopNewsList extends React.Component<IProps> {
   private renderSeparator = () => <Divider />;
 
   private renderIndicator = () => {
-    const isIOS = Platform.OS === "ios";
-
-    return (
-      <View
-        style={{
-          alignItems: "center",
-          flex: 1,
-          justifyContent: "center"
-        }}
-      >
-        <ActivityIndicator
-          size={isIOS ? "large" : 48}
-          color={DefaultTheme.colors.text}
-        />
-      </View>
-    );
+    return <ActivityIndicator />;
   };
 }
