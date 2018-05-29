@@ -17,16 +17,15 @@ export default class TopNewsList extends React.Component<IProps> {
 
     if (loading) {
       return this.renderIndicator();
-    } else {
-      return (
-        <FlatList
-          data={news}
-          keyExtractor={this.keyExtractor}
-          ItemSeparatorComponent={this.renderSeparator}
-          renderItem={this.renderItem}
-        />
-      );
     }
+    return (
+      <FlatList
+        data={news}
+        keyExtractor={this.keyExtractor}
+        ItemSeparatorComponent={this.renderSeparator}
+        renderItem={this.renderItem}
+      />
+    );
   }
 
   private renderItem = (item: ListRenderItemInfo<INewsItem>) => (

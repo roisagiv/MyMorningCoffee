@@ -1,0 +1,20 @@
+{
+    "setupTestFrameworkScriptFile": "./e2e/init.js",
+    "preset": "react-native",
+    "transform": {
+        "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/e2e/.*|(\\.|/)(test|spec))\\.(tsx?)$",
+    "moduleFileExtensions": [
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "node"
+    ],
+    "modulePaths": [
+        "<rootDir>"
+    ],
+    "rootDir": "../"
+}

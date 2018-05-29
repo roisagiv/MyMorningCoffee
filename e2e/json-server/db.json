@@ -1,0 +1,128 @@
+{
+    "top-headlines": {
+        "status": "ok",
+        "totalResults": 20,
+        "articles": [
+            {
+                "source": {
+                    "id": "the-new-york-times",
+                    "name": "The New York Times"
+                },
+                "author": "http://www.nytimes.com/by/manny-fernandez",
+                "title": "Santa Fe High's Baseball Team Takes the Field, Shadowed by Tragedy",
+                "description": "The stands were packed with people in the school’s colors Saturday night for a playoff game that the players chose not to postpone, a day after a gunman killed 10 people at their school.",
+                "url": "http://localhost:3000/en.wikipedia.org/wiki/Special:Random.0.html",
+                "urlToImage": "http://localhost:3000/spaceholder_320x240_0.jpg",
+                "publishedAt": "2018-05-20T17:51:06Z"
+            },
+            {
+                "source": {
+                    "id": "the-washington-post",
+                    "name": "The Washington Post"
+                },
+                "author": null,
+                "title": "Mnuchin says Trump putting trade war with China 'on hold'",
+                "description": "Mnuchin said the two sides have agreed on a “framework” to avoid sanctions.",
+                "url": "http://localhost:3000/en.wikipedia.org/wiki/Special:Random.1.html",
+                "urlToImage": "http://localhost:3000/spaceholder_320x240_1.jpg",
+                "publishedAt": "2018-05-20T17:28:37Z"
+            },
+            {
+                "source": {
+                    "id": "the-washington-post",
+                    "name": "The Washington Post"
+                },
+                "author": null,
+                "title": "Britain basks in royal wedding afterglow; grave gets bouquet",
+                "description": "Unwilling to kiss Prince Harry and Meghan Markle’s wedding goodbye just yet, Britain basked Sunday in the scale of the spectacle as major broadcasters kept scenes from the royal nuptials on repeat along with fresh interviews with the bride’s dressmaker.",
+                "url": "http://localhost:3000/en.wikipedia.org/wiki/Special:Random.2.html",
+                "urlToImage": "http://localhost:3000/spaceholder_320x240_2.jpg",
+                "publishedAt": "2018-05-20T17:26:15Z"
+            },
+            {
+                "source": {
+                    "id": "cnn",
+                    "name": "CNN"
+                },
+                "author": "Chris Cillizza, CNN Editor-at-large",
+                "title": "Donald Trump said 11 false things in just 5 tweets Sunday morning",
+                "description": "On Sunday morning, President Donald Trump tweeted. And tweeted. And tweeted.",
+                "url": "http://localhost:3000/en.wikipedia.org/wiki/Special:Random.3.html/",
+                "urlToImage": "http://localhost:3000/spaceholder_320x240_3.jpg",
+                "publishedAt": "2018-05-20T17:04:27Z"
+            },
+            {
+                "source": {
+                    "id": "the-washington-post",
+                    "name": "The Washington Post"
+                },
+                "author": "https://www.facebook.com/nakamuradavid",
+                "title": "Trump, South Korean leader commiserate over upcoming summit",
+                "description": "The president sought Moon Jae-in’s interpretation of North Korea’s shift to a harder-line position on denuclearization.",
+                "url": "http://localhost:3000/en.wikipedia.org/wiki/Special:Random.4.html",
+                "urlToImage": "http://localhost:3000/spaceholder_320x240_4.jpg",
+                "publishedAt": "2018-05-20T16:57:55Z"
+            },
+            {
+                "source": {
+                    "id": "business-insider",
+                    "name": "Business Insider"
+                },
+                "author": "Allan Smith",
+                "title": "Michael Cohen is digging himself into an increasingly deeper hole as he faces legal headaches on multiple fronts",
+                "description": "If the past few weeks are any indication, it appears as if President Donald Trump's longtime lawyer Michael Cohen is in a heap of trouble.",
+                "url": "http://localhost:3000/en.wikipedia.org/wiki/Special:Random.5.html",
+                "urlToImage": "http://localhost:3000/spaceholder_320x240_5.jpg",
+                "publishedAt": "2018-05-20T16:42:30Z"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "Abc13.com"
+                },
+                "author": null,
+                "title": "Authorities search for 3 inmates who escaped South Carolina jail",
+                "description": "Authorities are searching for three inmates who escaped from a South Carolina jail. Two of the inmates are charged with murder.",
+                "url": "http://localhost:3000/en.wikipedia.org/wiki/Special:Random.6.html",
+                "urlToImage": "http://localhost:3000/spaceholder_320x240_6.jpg",
+                "publishedAt": "2018-05-20T16:34:00Z"
+            },
+            {
+                "source": {
+                    "id": "usa-today",
+                    "name": "USA Today"
+                },
+                "author": "Chris Woodyard",
+                "title": "Hawaii volcano poses a new threat: Acid from Kilauea's lava, called 'laze,' pouring into the ocean",
+                "description": "After destroying dozens of houses, lava from the Kilauea volcano has now reached the ocean, presenting a new health threat to Hawaiians. Civil defense authorities on Hawaii posted a warning to stay clear of any lava stream that is flowing into the ocean. When…",
+                "url": "http://localhost:3000/en.wikipedia.org/wiki/Special:Random.7.html",
+                "urlToImage": "http://localhost:3000/spaceholder_320x240_7.jpg",
+                "publishedAt": "2018-05-20T16:32:00Z"
+            },
+            {
+                "source": {
+                    "id": "the-washington-post",
+                    "name": "The Washington Post"
+                },
+                "author": "https://www.facebook.com/kristineaguerra",
+                "title": "Cougar kills one man, injures another in rare attack outside Seattle",
+                "description": "The incident Saturday is the first known fatal cougar attack in Washington state since the 1920s, authorities said.",
+                "url": "http://localhost:3000/en.wikipedia.org/wiki/Special:Random.8.html",
+                "urlToImage": "http://localhost:3000/spaceholder_320x240_8.jpg",
+                "publishedAt": "2018-05-20T16:15:49Z"
+            },
+            {
+                "source": {
+                    "id": null,
+                    "name": "Npr.org"
+                },
+                "author": null,
+                "title": "After US Embassy Move, What Actually Changes For Israelis And Palestinians?",
+                "description": "Have the past week's developments changed anything in their conflict? Demands are the same and impasses remain, but the United States' role in potential peace talks appears to be shifting.",
+                "url": "http://localhost:3000/en.wikipedia.org/wiki/Special:Random.9.html",
+                "urlToImage": "http://localhost:3000/spaceholder_320x240_9.jpg",
+                "publishedAt": "2018-05-20T15:59:00Z"
+            }
+        ]
+    }
+}

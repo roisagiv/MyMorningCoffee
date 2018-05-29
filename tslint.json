@@ -2,14 +2,28 @@
     "defaultSeverity": "error",
     "extends": [
         "tslint:latest",
+        "tslint-config-airbnb",
+        "tslint-eslint-rules",
         "tslint-react",
-        "tslint-config-prettier",
-        "tslint-plugin-prettier",
-        "tslint-eslint-rules"
+        "tslint-config-prettier"
     ],
-    "jsRules": {},
     "rules": {
-        "prettier": true
+        "prettier": true,
+        "quotemark": [
+            true,
+            "double",
+            "jsx-double"
+        ],
+        "import-name": false,
+        // This rule is here for now because of https://github.com/palantir/tslint-react/issues/120
+        "variable-name": [
+            true,
+            "ban-keywords",
+            "check-format",
+            "allow-pascal-case"
+        ]
     },
-    "rulesDirectory": []
+    "rulesDirectory": [
+        "tslint-plugin-prettier"
+    ]
 }
