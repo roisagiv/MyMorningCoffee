@@ -1,6 +1,5 @@
 /* tslint:disable:no-implicit-dependencies */
 import Faker from "faker";
-import { when } from "mobx";
 import nock from "nock";
 import { NewsStore } from "../";
 import { NewsAPIService } from "../../Services/NewsAPIService";
@@ -31,7 +30,7 @@ describe("NewsStore", () => {
       nock.cleanAll();
     });
 
-    it("fills the items with the response", done => {
+    it("fills the items with the response", async () => {
       nock("http://localhost:5000")
         .get("/top-headlines")
         .query({ country: "us" })
@@ -39,39 +38,23 @@ describe("NewsStore", () => {
       const api = new NewsAPIService("http://localhost:5000", "123");
       const store = NewsStore.create({}, { newsApiService: api });
 
-      // tslint:disable-next-line:no-empty
-      store.fetch().then(() => {});
-
-      when(
-        () => !store.loading,
-        () => {
-          expect(store.error).toBeNull();
-          expect(store.items).toHaveLength(20);
-          done();
-        }
-      );
+      expect(store.loading).toEqual(false);
+      await store.fetch();
+      expect(store.error).toBeNull();
+      expect(store.items).toHaveLength(20);
     });
 
-    it("fills the error property", done => {
+    it("fills the error property", async () => {
       nock("http://localhost:5000")
-        .get("/top-headlines?country=us")
+        .get("/top-headlines")
         .query({ country: "us" })
         .reply(500);
       const api = new NewsAPIService("http://localhost:5000", "123");
       const store = NewsStore.create({}, { newsApiService: api });
 
-      // tslint:disable-next-line:no-empty
-      store.fetch().then(() => {});
-      store.fetch();
-
-      when(
-        () => !store.loading,
-        () => {
-          expect(store.error).not.toBeNull();
-          expect(store.items).toHaveLength(0);
-          done();
-        }
-      );
+      await store.fetch();
+      expect(store.error).not.toBeNull();
+      expect(store.items).toHaveLength(0);
     });
   });
 });

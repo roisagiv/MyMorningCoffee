@@ -656,9 +656,13 @@
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/@types/faker/-/faker-4.1.2.tgz#f8ab50c9f9af68c160dd71b63f83e24b712d0df5"
 
-"@types/jest@22.2.3", "@types/jest@22.x.x":
+"@types/jest@22.x.x":
   version "22.2.3"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.2.3.tgz#0157c0316dc3722c43a7b71de3fdf3acbccef10d"
+
+"@types/jest@23.0.0":
+  version "23.0.0"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.0.0.tgz#760cac74f00bb9c3075587716d2b3b4435663bc0"
 
 "@types/jquery@^2.0.40":
   version "2.0.49"
@@ -682,15 +686,17 @@
   version "15.5.3"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.3.tgz#bef071852dca2a2dbb65fecdb7bfb30cedae2de2"
 
-"@types/react-native@0.51.x":
-  version "0.51.10"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.51.10.tgz#ab060c0b87110a32a2e797ebaef5b485a7856217"
+"@types/react-native@0.51.1":
+  version "0.51.1"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.51.1.tgz#ab47c0d17c68149cbe5233d9f67dc586c61146df"
   dependencies:
     "@types/react" "*"
 
-"@types/react-native@0.55.16":
-  version "0.55.16"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.55.16.tgz#992304c2228b276c10d2b4460d824477b25d0306"
+"@types/react-native@0.55.17":
+  version "0.55.17"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.55.17.tgz#c3ac72096c3dfe26ff58cce820a1ba39c0026564"
+  dependencies:
+    "@types/react" "*"
 
 "@types/react-test-renderer@16.0.1", "@types/react-test-renderer@16.x.x":
   version "16.0.1"
@@ -698,9 +704,15 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16.3.14", "@types/react@16.x.x":
+"@types/react@*", "@types/react@16.x.x":
   version "16.3.14"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.3.14.tgz#f90ac6834de172e13ecca430dcb6814744225d36"
+  dependencies:
+    csstype "^2.2.0"
+
+"@types/react@16.3.17":
+  version "16.3.17"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.3.17.tgz#d59d1a632570b0713946ed9c2949d994773633c5"
   dependencies:
     csstype "^2.2.0"
 
@@ -3288,9 +3300,9 @@ detox-server@^7.0.0:
     npmlog "^4.0.2"
     ws "^1.1.0"
 
-detox@7.3.7:
-  version "7.3.7"
-  resolved "https://registry.yarnpkg.com/detox/-/detox-7.3.7.tgz#257a2bdb805b98a5c9c001e4b30a16bf72ce7ba6"
+detox@7.4.0:
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/detox/-/detox-7.4.0.tgz#b4be499907f887c9a8e21039a30181678599b35f"
   dependencies:
     child-process-promise "^2.2.0"
     commander "^2.15.1"
@@ -3299,7 +3311,9 @@ detox@7.3.7:
     get-port "^2.1.0"
     ini "^1.3.4"
     lodash "^4.14.1"
+    minimist "^1.2.0"
     npmlog "^4.0.2"
+    proper-lockfile "^3.0.2"
     shell-utils "^1.0.9"
     tail "^1.2.3"
     telnet-client "0.15.3"
@@ -6499,9 +6513,9 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mobx-react@5.1.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-5.1.2.tgz#ec5c2d29a1df823dbd1b37e214fa36a0907054e2"
+mobx-react@5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-5.2.0.tgz#d1fc36d6231a84d0ca54ebeaaa692872859d3629"
   dependencies:
     hoist-non-react-statics "^2.5.0"
     react-lifecycles-compat "^3.0.2"
@@ -6510,9 +6524,13 @@ mobx-state-tree@2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-2.0.5.tgz#99131b2a729c6eaf9de16a12d52bf19e0ee5ba1f"
 
-mobx@4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-4.3.0.tgz#50a5e63fd0197a83c68166ff83ada45b65c859f8"
+mobx@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-5.0.0.tgz#1214db984899b937581a5e802c65cec214eb6dd1"
+
+moment@2.22.2:
+  version "2.22.2"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
 morgan@^1.9.0:
   version "1.9.0"
@@ -6606,9 +6624,9 @@ no-case@^2.2.0:
   dependencies:
     lower-case "^1.1.1"
 
-nock@9.3.0:
-  version "9.3.0"
-  resolved "https://registry.yarnpkg.com/nock/-/nock-9.3.0.tgz#4dcfdd37bd249836754d05bbac5a1f05e12e0f16"
+nock@9.3.2:
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/nock/-/nock-9.3.2.tgz#f2f52a784a8a33d7496f4ab5b28c3b879091e6d6"
   dependencies:
     chai "^4.1.2"
     debug "^3.1.0"
@@ -7483,9 +7501,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@1.13.3:
-  version "1.13.3"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.13.3.tgz#e74c09a7df6519d472ca6febaa37cf7addb48a20"
+prettier@1.13.4:
+  version "1.13.4"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.13.4.tgz#31bbae6990f13b1093187c731766a14036fa72e6"
 
 pretty-error@^2.0.2:
   version "2.1.1"
@@ -7557,6 +7575,13 @@ prop-types@15.x.x, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, 
 propagate@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/propagate/-/propagate-1.0.0.tgz#00c2daeedda20e87e3782b344adba1cddd6ad709"
+
+proper-lockfile@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/proper-lockfile/-/proper-lockfile-3.0.2.tgz#d30b3b83ecb157e08fe0d411f2393bc384b77ad1"
+  dependencies:
+    graceful-fs "^4.1.11"
+    retry "^0.10.1"
 
 proxy-addr@~2.0.3:
   version "2.0.3"
@@ -7793,7 +7818,7 @@ react-lifecycles-compat@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-2.0.0.tgz#71d9c4cde47114c4102454f76da055c2bc48c948"
 
-react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.2:
+react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
@@ -7820,29 +7845,29 @@ react-native-iphone-x-helper@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.0.3.tgz#7a2f1e0574e899a0f1d426e6167fd98990083214"
 
-react-native-navigation@2.0.2295:
-  version "2.0.2295"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-2.0.2295.tgz#da01f320dd1c3596f4f919f935d1e44b73abb609"
+react-native-navigation@2.0.2329:
+  version "2.0.2329"
+  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-2.0.2329.tgz#751d704267d8b7df0c05cf8114a4c297fb2d0283"
   dependencies:
     "@types/jest" "22.x.x"
     "@types/lodash" "4.x.x"
     "@types/prop-types" "15.x.x"
     "@types/react" "16.x.x"
-    "@types/react-native" "0.51.x"
+    "@types/react-native" "0.51.1"
     "@types/react-test-renderer" "16.x.x"
     lodash "4.x.x"
     prop-types "15.x.x"
     react-lifecycles-compat "2.0.0"
 
-react-native-paper@1.9.1:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-1.9.1.tgz#ae86510b7b7f3d261b13d7b24a723e2b922d9347"
+react-native-paper@1.10.3:
+  version "1.10.3"
+  resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-1.10.3.tgz#8b6c44bc38f10bea063108d5633480ec19029996"
   dependencies:
     color "^2.0.1"
     create-react-context "^0.2.2"
     deepmerge "^2.1.0"
     hoist-non-react-statics "^2.5.0"
-    react-lifecycles-compat "^3.0.2"
+    react-lifecycles-compat "^3.0.4"
 
 react-native-storybook-loader@1.8.0:
   version "1.8.0"
@@ -8366,6 +8391,10 @@ restore-cursor@^2.0.0:
 ret@~0.1.10:
   version "0.1.15"
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
+
+retry@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/retry/-/retry-0.10.1.tgz#e76388d217992c252750241d3d3956fed98d8ff4"
 
 right-align@^0.1.1:
   version "0.1.3"

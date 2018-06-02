@@ -1,4 +1,5 @@
 import * as React from "react";
+import { View } from "react-native";
 import {
   Card,
   CardContent,
@@ -24,14 +25,16 @@ export default class NewsItem extends React.PureComponent<IProps> {
       : {};
 
     return (
-      <Card elevation={0} onPress={this.onItemPress}>
-        <ListItem title={newsItem.source.name} description={time} />
-        <CardCover {...imageUrl} />
-        <CardContent>
-          <Title numberOfLines={2}>{newsItem.title}</Title>
-          <Paragraph numberOfLines={3}>{newsItem.description}</Paragraph>
-        </CardContent>
-      </Card>
+      <View testID={newsItem.url}>
+        <Card elevation={0} onPress={this.onItemPress}>
+          <ListItem title={newsItem.source.name} description={time} />
+          <CardCover {...imageUrl} />
+          <CardContent>
+            <Title numberOfLines={2}>{newsItem.title}</Title>
+            <Paragraph numberOfLines={3}>{newsItem.description}</Paragraph>
+          </CardContent>
+        </Card>
+      </View>
     );
   }
 
