@@ -1,0 +1,69 @@
+{
+    "title": "Hackernews",
+    "type": "object",
+    "properties": {
+        "v0": {
+            "topstories": {
+                "item": {
+                    "title": "Top Stories",
+                    "type": "array",
+                    "minItems": 10,
+                    "maxItems": 10,
+                    "items": {
+                        "id": "HackerNewsItem",
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer",
+                                "initialOffset": 9130260,
+                                "autoIncrement": true
+                            },
+                            "by": {
+                                "type": "string",
+                                "maxLength": 30,
+                                "pattern": "[a-z\\d~+-]+"
+                            },
+                            "descendants": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 500
+                            },
+                            "score": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 500
+                            },
+                            "time": {
+                                "type": "integer",
+                                "chance": "timestamp"
+                            },
+                            "title": {
+                                "type": "string",
+                                "faker": "lorem.sentence"
+                            },
+                            "type": {
+                                "enum": [
+                                    "story"
+                                ]
+                            },
+                            "url": {
+                                "type": "string",
+                                "faker": "internet.url"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "by",
+                            "descendants",
+                            "score",
+                            "time",
+                            "title",
+                            "type",
+                            "url"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,3 +1,8 @@
+declare module "*.json" {
+    const value: any;
+    export default value;
+}
+
 declare module '@storybook/react-native' {
     // Type definitions for @storybook/react 3.0
     // Project: https://github.com/storybooks/storybook

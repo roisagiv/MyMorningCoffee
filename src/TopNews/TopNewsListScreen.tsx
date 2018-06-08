@@ -15,7 +15,7 @@ interface IProps {
 export class TopNewsListScreen extends React.Component<IProps, {}> {
   public async componentDidAppear() {
     const s: INewsStore = store;
-    await s.fetch();
+    await s.topStories();
   }
 
   public render() {

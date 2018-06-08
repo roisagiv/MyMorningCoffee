@@ -13,7 +13,7 @@ class TopNewsListContainer extends React.Component<IProps, {}> {
     const { store, onNewsItemPress } = this.props;
     return (
       <TopNewsList
-        news={store.items}
+        news={store.news}
         loading={store.loading}
         onPress={onNewsItemPress}
       />

@@ -25,7 +25,7 @@ export default class NewsItem extends React.PureComponent<IProps> {
       : {};
 
     return (
-      <View testID={newsItem.url}>
+      <View testID={newsItem.id.toString()}>
         <Card elevation={0} onPress={this.onItemPress}>
           <ListItem title={newsItem.source.name} description={time} />
           <CardCover {...imageUrl} />

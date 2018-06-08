@@ -3,7 +3,20 @@ import { NewsStore } from "./NewsStore";
 
 const createStore = () => {
   const api = Services.newsApiService();
-  const newsStore = NewsStore.create({}, { newsApiService: api });
+  const hnApi = Services.hackerNewsService();
+  const urlHashService = Services.urlHashService();
+  const scraping = Services.scrapingService();
+
+  const newsStore = NewsStore.create(
+    {},
+    {
+      urlHashService,
+      // tslint:disable-next-line:object-literal-sort-keys
+      newsApiService: api,
+      hackerNewsService: hnApi,
+      scrapingService: scraping
+    }
+  );
 
   if (__DEV__) {
     const middlewares = require("mst-middlewares");

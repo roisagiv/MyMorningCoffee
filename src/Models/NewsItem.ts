@@ -8,10 +8,11 @@ const NewsItemSourceModel = types.model({
 export const NewsItemModel = types.model({
   author: types.maybe(types.string),
   description: types.maybe(types.string),
-  publishedAt: types.string,
+  id: types.identifier(types.number),
+  publishedAt: types.maybe(types.string),
   source: types.maybe(NewsItemSourceModel),
-  title: types.string,
-  url: types.string,
+  title: types.maybe(types.string),
+  url: types.maybe(types.string),
   urlToImage: types.maybe(types.string)
 });
 

@@ -28,11 +28,11 @@ export default class TopNewsList extends React.Component<IProps> {
     );
   }
 
-  private renderItem = (item: ListRenderItemInfo<INewsItem>) => (
-    <NewsItem newsItem={item.item} onPress={this.props.onPress} />
-  );
+  private renderItem = (item: ListRenderItemInfo<INewsItem>) => {
+    return <NewsItem newsItem={item.item} onPress={this.props.onPress} />;
+  };
 
-  private keyExtractor = (item: INewsItem) => item.url;
+  private keyExtractor = (item: INewsItem) => item.id.toString();
 
   private renderSeparator = () => <Divider />;
 
