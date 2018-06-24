@@ -14,15 +14,19 @@ storiesOf("TopNewsList", module)
       .map(() => ({
         author: Faker.name.title(),
         description: Faker.lorem.paragraph(),
+        id: Faker.random.number(1000),
         publishedAt: Faker.date.recent().toISOString(),
         source: {
           id: Faker.random.uuid(),
           name: Faker.company.companyName()
         },
+        state: "progress",
         title: Faker.lorem.sentence(),
         url: Faker.internet.url(),
         urlToImage: `https://loremflickr.com/320/240?random=${Faker.random.number()}`
       }));
-    return <TopNewsList news={news} />;
+    // tslint:disable-next-line:no-empty
+    const onPress = () => {};
+    return <TopNewsList news={news} onPress={onPress} />;
   })
   .add("loading", () => <TopNewsList loading={true} news={[]} />);

@@ -5,11 +5,23 @@
     "noEmit": true,
     "moduleResolution": "node",
     "noImplicitAny": true,
+    "importHelpers": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "lib": [
+      "dom",
+      "es2015",
+      "es2016"
+    ],
+    "esModuleInterop": true,
+    "types": [
+      "react",
+      "react-native",
+      "jest"
+    ],
+    "skipLibCheck": true
   },
   "exclude": [
     "node_modules"
-  ]
+  ],
 }

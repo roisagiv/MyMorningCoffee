@@ -1,4 +1,3 @@
-import { AxiosResponse } from "axios";
 import { flow, getEnv, types } from "mobx-state-tree";
 import moment from "moment";
 import {
@@ -8,12 +7,9 @@ import {
 import INewsAPIService, {
   ITopHeadlinesResponse
 } from "../Services/NewsAPIService";
-import IScrapingService, {
-  IScrapedItem,
-  IScrapeResponse
-} from "../Services/ScrapingService";
+import IScrapingService, { IScrapeResponse } from "../Services/ScrapingService";
 import IURLHashService from "../Services/URLHashService";
-import { INewsItem, NewsItemModel } from "./NewsItem";
+import { INewsItem, NewsItemModel, NewsItemModelState } from "./NewsItem";
 
 export const NewsStore = types
   .model({
@@ -23,9 +19,6 @@ export const NewsStore = types
     updatedAt: types.maybe(types.Date)
   })
   .views(self => ({
-    get newsService(): INewsAPIService {
-      return getEnv(self).newsApiService;
-    },
     get hackerNewsService(): IHackerNewsService {
       return getEnv(self).hackerNewsService;
     },
@@ -37,6 +30,9 @@ export const NewsStore = types
     },
     get news(): INewsItem[] {
       return Array.from(self.items.values());
+    },
+    newsItemById(id: number): INewsItem {
+      return self.items.get(id.toString());
     }
   }))
   .actions(self => {
@@ -50,40 +46,15 @@ export const NewsStore = types
       return now.diff(lastFetch, "minutes") !== 0;
     };
 
-    const fetch = flow(function* fetchTopHeadlines() {
+    const updateItem = (item: INewsItem) => {
+      self.items.set(item.id.toString(), item);
+    };
+
+    const topStories = flow(function* fetchTopStories() {
       if (!shouldReload(self.updatedAt)) {
         return;
       }
 
-      setLoading(true);
-
-      try {
-        const response: AxiosResponse<
-          ITopHeadlinesResponse
-        > = yield self.newsService.topHeadlines();
-
-        if (response.status >= 200 && response.status < 400) {
-          self.items.clear();
-          const news = response.data.articles.map(article => {
-            return NewsItemModel.create({
-              id: self.urlHashService.hash(article.url),
-              ...article
-            });
-          });
-          news.forEach(item => self.items.put(item));
-          setLoading(false);
-        } else {
-          self.error = response.statusText;
-        }
-      } catch (error) {
-        self.error = error.toString();
-      } finally {
-        setLoading(false);
-        self.updatedAt = new Date();
-      }
-    });
-
-    const topStories = flow(function* fetchTopStories() {
       setLoading(true);
 
       let stories: IHackerNewsStory[] = yield self.hackerNewsService.topStories(
@@ -92,28 +63,16 @@ export const NewsStore = types
       self.items.clear();
 
       stories = stories.filter(story => story.type === "story" && story.url);
-      const scraped = stories.map(story => {
-        return self.scrapingService.scrape(story.url);
-      });
-      const data: IScrapeResponse[] = yield Promise.all(scraped);
-      data.forEach(response => {
-        if (!response.ok) {
-          return;
-        }
-
-        const item = response.data;
+      stories.forEach(story => {
         self.items.put(
           NewsItemModel.create({
-            author: item.author,
-            description: item.description,
-            id: item.url
-              ? self.urlHashService.hash(item.url)
+            id: story.url
+              ? self.urlHashService.hash(story.url)
               : Math.random() * 100,
-            publishedAt: item.date_published,
-            source: { id: "", name: "" },
-            title: item.title,
-            url: item.url,
-            urlToImage: item.cover_image_url
+            publishedAt: moment.unix(story.time).toISOString(),
+            state: NewsItemModelState.Pending,
+            title: story.title,
+            url: story.url
           })
         );
       });
@@ -122,8 +81,34 @@ export const NewsStore = types
       self.updatedAt = new Date();
     });
 
+    const expand = flow(function*(id: number) {
+      const item = self.items.get(id.toString());
+      if (item.state !== NewsItemModelState.Pending) {
+        return;
+      }
+
+      item.state = NewsItemModelState.Progress;
+
+      const scraped: IScrapeResponse = yield self.scrapingService.scrape(
+        item.url
+      );
+
+      if (scraped.ok) {
+        const data = scraped.data;
+        item.author = data.author;
+        item.description = data.description;
+        item.title = data.title;
+        item.url = data.url;
+        item.urlToImage = data.cover_image_url;
+        item.publishedAt = data.date_published;
+        item.state = NewsItemModelState.Done;
+      } else {
+        item.state = NewsItemModelState.Error;
+      }
+    });
+
     return {
-      fetch,
+      expand,
       topStories
     };
   });

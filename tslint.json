@@ -23,6 +23,11 @@
             "allow-pascal-case"
         ]
     },
+    "linterOptions": {
+        "exclude": [
+            "src/typings.d.ts"
+        ]
+    },
     "rulesDirectory": [
         "tslint-plugin-prettier"
     ]

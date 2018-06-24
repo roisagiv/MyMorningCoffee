@@ -23,14 +23,28 @@ export class TopNewsListScreen extends React.Component<IProps, {}> {
     return (
       <MobxProvider store={s}>
         <PaperProvider theme={DefaultTheme}>
-          <Toolbar title="Top News" />
-          <TopNewsListContainer onNewsItemPress={this.onNewsItemPress} />
+          <Toolbar title="Top News" onDevModePress={this.onDevModePress} />
+          <TopNewsListContainer
+            onNewsItemPress={this.onNewsItemPress}
+            {...this.props}
+          />
         </PaperProvider>
       </MobxProvider>
     );
   }
 
-  private onNewsItemPress = (item: INewsItem) => {
+  private onDevModePress = () => {
+    Navigation.push(this.props.componentId, {
+      component: {
+        id: Screens.storybook.id,
+        name: Screens.storybook.name
+      }
+    });
+  };
+
+  private onNewsItemPress = (id: number) => {
+    const item = store.newsItemById(id);
+
     Navigation.push(this.props.componentId, {
       component: {
         id: Screens.fullArticle.id,

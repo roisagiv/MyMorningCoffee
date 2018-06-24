@@ -2,7 +2,6 @@ import Services from "../Services";
 import { NewsStore } from "./NewsStore";
 
 const createStore = () => {
-  const api = Services.newsApiService();
   const hnApi = Services.hackerNewsService();
   const urlHashService = Services.urlHashService();
   const scraping = Services.scrapingService();
@@ -12,7 +11,6 @@ const createStore = () => {
     {
       urlHashService,
       // tslint:disable-next-line:object-literal-sort-keys
-      newsApiService: api,
       hackerNewsService: hnApi,
       scrapingService: scraping
     }

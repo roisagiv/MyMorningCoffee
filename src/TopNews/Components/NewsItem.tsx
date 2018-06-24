@@ -1,37 +1,61 @@
 import * as React from "react";
 import { View } from "react-native";
 import {
+  Caption,
   Card,
   CardContent,
   CardCover,
-  ListItem,
+  Colors,
   Paragraph,
+  Subheading,
   Title
 } from "react-native-paper";
 import timeago from "timeago.js";
-import { INewsItem } from "../../Models";
+import { DefaultTheme } from "../../Theme/DefaultTheme";
 
 interface IProps {
-  newsItem: INewsItem;
-  onPress?: (item: INewsItem) => void;
+  id: number;
+  publishedAt?: string;
+  coverImage?: string;
+  source?: string;
+  title: string;
+  description?: string;
+  loading?: boolean;
+  onPress?: (id: number) => void;
 }
 
 export default class NewsItem extends React.PureComponent<IProps> {
   public render() {
-    const { newsItem, onPress } = this.props;
-    const time = timeago().format(newsItem.publishedAt);
-    const imageUrl = newsItem.urlToImage
-      ? { source: { uri: newsItem.urlToImage } }
-      : {};
+    const {
+      publishedAt,
+      coverImage,
+      id,
+      source,
+      title,
+      description,
+      loading
+    } = this.props;
+    const time = timeago().format(publishedAt);
+    const imageUrl = coverImage ? { source: { uri: coverImage } } : {};
+
+    const textStyle = loading ? { color: DefaultTheme.colors.placeholder } : {};
+    const imageStyle = loading ? { backgroundColor: Colors.grey50 } : {};
 
     return (
-      <View testID={newsItem.id.toString()}>
+      <View testID={id.toString()}>
         <Card elevation={0} onPress={this.onItemPress}>
-          <ListItem title={newsItem.source.name} description={time} />
-          <CardCover {...imageUrl} />
           <CardContent>
-            <Title numberOfLines={2}>{newsItem.title}</Title>
-            <Paragraph numberOfLines={3}>{newsItem.description}</Paragraph>
+            <Subheading style={textStyle}>{source}</Subheading>
+            <Caption style={textStyle}>{time}</Caption>
+          </CardContent>
+          <CardCover {...imageUrl} style={imageStyle} />
+          <CardContent>
+            <Title numberOfLines={2} style={textStyle}>
+              {title}
+            </Title>
+            <Paragraph numberOfLines={3} style={textStyle}>
+              {description}
+            </Paragraph>
           </CardContent>
         </Card>
       </View>
@@ -39,7 +63,7 @@ export default class NewsItem extends React.PureComponent<IProps> {
   }
 
   private onItemPress = () => {
-    const item = this.props.newsItem;
+    const item = this.props.id;
     this.props.onPress(item);
   };
 }

@@ -13,7 +13,7 @@ describe("NewsAPIService", () => {
   beforeEach(() => {
     server.use(router);
     server.use(middlewares);
-    app = server.listen(5000);
+    app = server.listen(6000);
   });
 
   afterEach(() => {
@@ -21,7 +21,7 @@ describe("NewsAPIService", () => {
   });
 
   it("fills the items with the response", async () => {
-    const api = new NewsAPIService("http://localhost:5000", "123");
+    const api = new NewsAPIService("http://localhost:6000", "123");
 
     const results = await api.fetch(30);
     expect(results).toHaveLength(10);
