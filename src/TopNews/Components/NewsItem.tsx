@@ -1,10 +1,10 @@
 import * as React from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import FastImage from "react-native-fast-image";
 import {
   Caption,
   Card,
   CardContent,
-  CardCover,
   Colors,
   Paragraph,
   Subheading,
@@ -24,6 +24,20 @@ interface IProps {
   onPress?: (id: number) => void;
 }
 
+const styles = StyleSheet.create({
+  container: {
+    borderRadius: DefaultTheme.roundness,
+    height: 195,
+    overflow: "hidden"
+  },
+  image: {
+    flex: 1,
+    height: null,
+    padding: 16,
+    width: null
+  }
+});
+
 export default class NewsItem extends React.PureComponent<IProps> {
   public render() {
     const {
@@ -36,7 +50,9 @@ export default class NewsItem extends React.PureComponent<IProps> {
       loading
     } = this.props;
     const time = timeago().format(publishedAt);
-    const imageUrl = coverImage ? { source: { uri: coverImage } } : {};
+    const imageUrl = coverImage
+      ? { source: { uri: coverImage } }
+      : { source: {} };
 
     const textStyle = loading ? { color: DefaultTheme.colors.placeholder } : {};
     const imageStyle = loading ? { backgroundColor: Colors.grey50 } : {};
@@ -48,7 +64,9 @@ export default class NewsItem extends React.PureComponent<IProps> {
             <Subheading style={textStyle}>{source}</Subheading>
             <Caption style={textStyle}>{time}</Caption>
           </CardContent>
-          <CardCover {...imageUrl} style={imageStyle} />
+          <View style={[styles.container]}>
+            <FastImage {...imageUrl} style={[imageStyle, styles.image]} />
+          </View>
           <CardContent>
             <Title numberOfLines={2} style={textStyle}>
               {title}
