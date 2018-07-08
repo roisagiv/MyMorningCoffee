@@ -1,7 +1,6 @@
 import { Observer } from "mobx-react";
 import * as React from "react";
-import { FlatList, ListRenderItemInfo } from "react-native";
-import { Divider } from "react-native-paper";
+import { FlatList, ListRenderItemInfo, View } from "react-native";
 import ActivityIndicator from "../../Components/ActivityIndicator";
 import { INewsItem } from "../../Models";
 import { NewsItemModelState } from "../../Models/NewsItem";
@@ -24,8 +23,8 @@ export default class TopNewsList extends React.Component<IProps> {
     return (
       <FlatList
         data={news}
-        keyExtractor={this.keyExtractor}
         ItemSeparatorComponent={this.renderSeparator}
+        keyExtractor={this.keyExtractor}
         renderItem={this.renderItem}
       />
     );
@@ -59,7 +58,7 @@ export default class TopNewsList extends React.Component<IProps> {
 
   private keyExtractor = (item: INewsItem) => item.id.toString();
 
-  private renderSeparator = () => <Divider />;
+  private renderSeparator = () => <View style={{ height: 16 }} />;
 
   private renderIndicator = () => {
     return <ActivityIndicator />;

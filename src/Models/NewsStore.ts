@@ -95,7 +95,7 @@ export const NewsStore = types
 
       if (scraped.ok) {
         const data = scraped.data;
-        item.author = data.author;
+        item.source = data.source;
         item.description = data.description;
         item.title = data.title;
         item.url = data.url;

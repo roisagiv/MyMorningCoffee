@@ -8,7 +8,7 @@ import limit from "p-limit";
  * @interface IScrapedItem
  */
 export interface IScrapedItem {
-  author?: string;
+  source?: string;
   description?: string;
   url: string;
   cover_image_url?: string;
@@ -103,10 +103,10 @@ export class MercuryParserScrapingService implements IScrapingService {
           if (response.ok) {
             const payload: IMercoryParserResponse = response.data;
             const result: IScrapedItem = {
-              author: payload.author,
               cover_image_url: payload.lead_image_url,
               date_published: payload.date_published,
               description: payload.excerpt,
+              source: payload.domain,
               title: payload.title,
               url: payload.url
             };

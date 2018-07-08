@@ -43,7 +43,7 @@ describe("MercuryParserScrapingService", () => {
     expect(response.error).toBeNull();
 
     const result = response.data;
-    expect(result.author).toEqual(payload.author);
+    expect(result.source).toEqual(payload.domain);
     expect(result.cover_image_url).toEqual(payload.lead_image_url);
     expect(result.date_published).toEqual(payload.date_published);
     expect(result.description).toEqual(payload.excerpt);

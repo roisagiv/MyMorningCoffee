@@ -2,12 +2,10 @@ import * as React from "react";
 import { StyleSheet, View } from "react-native";
 import FastImage from "react-native-fast-image";
 import {
-  Caption,
   Card,
   CardContent,
   Colors,
   Paragraph,
-  Subheading,
   Title
 } from "react-native-paper";
 import timeago from "timeago.js";
@@ -25,16 +23,20 @@ interface IProps {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    borderRadius: DefaultTheme.roundness,
-    height: 195,
-    overflow: "hidden"
+  contentContainer: {
+    alignContent: "stretch",
+    flexDirection: "row"
   },
-  image: {
+  coverImage: {
     flex: 1,
     height: null,
     padding: 16,
     width: null
+  },
+  coverImageContainer: {
+    borderRadius: DefaultTheme.roundness,
+    height: 195,
+    overflow: "hidden"
   }
 });
 
@@ -60,12 +62,12 @@ export default class NewsItem extends React.PureComponent<IProps> {
     return (
       <View testID={id.toString()}>
         <Card elevation={0} onPress={this.onItemPress}>
-          <CardContent>
-            <Subheading style={textStyle}>{source}</Subheading>
-            <Caption style={textStyle}>{time}</Caption>
+          <CardContent style={styles.contentContainer}>
+            <Paragraph style={[textStyle, { flex: 1 }]}>{source}</Paragraph>
+            <Paragraph style={textStyle}>{time}</Paragraph>
           </CardContent>
-          <View style={[styles.container]}>
-            <FastImage {...imageUrl} style={[imageStyle, styles.image]} />
+          <View style={[styles.coverImageContainer, { margin: 8 }]}>
+            <FastImage {...imageUrl} style={[imageStyle, styles.coverImage]} />
           </View>
           <CardContent>
             <Title numberOfLines={2} style={textStyle}>

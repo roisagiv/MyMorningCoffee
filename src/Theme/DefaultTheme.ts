@@ -14,5 +14,5 @@ export const DefaultTheme = {
     regular: Font.Comfortaa,
     thin: Font.ComfortaaLight
   },
-  roundness: 2
+  roundness: 4
 };
