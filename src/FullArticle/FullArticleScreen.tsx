@@ -21,7 +21,7 @@ export class FullArticleScreen extends React.Component<IProps, {}> {
       <MobxProvider store={s}>
         <PaperProvider theme={DefaultTheme}>
           <Toolbar
-            title={item.source.name}
+            title={item.source}
             subtitle={item.title}
             onBack={this.onBackPress}
           />

@@ -1,8 +1,8 @@
 import { inject, observer } from "mobx-react";
 import React from "react";
-import { WebView } from "react-native";
 import ActivityIndicator from "../Components/ActivityIndicator";
 import { INewsItem, INewsStore } from "../Models";
+import WebView from "./Components/WebView";
 
 interface IProps {
   item?: INewsItem;
