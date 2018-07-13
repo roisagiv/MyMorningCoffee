@@ -11,18 +11,23 @@ interface IProps {
   loading?: boolean;
   onPress?: (id: number) => void;
   onRenderItem?: (id: number) => void;
+  onRefresh?: () => void;
 }
 
 export default class TopNewsList extends React.Component<IProps> {
   public render() {
-    const { news, loading } = this.props;
+    const { news, loading, onRefresh } = this.props;
 
+    /*
     if (loading) {
       return this.renderIndicator();
     }
+    */
     return (
       <FlatList
         data={news}
+        refreshing={loading}
+        onRefresh={onRefresh}
         ItemSeparatorComponent={this.renderSeparator}
         keyExtractor={this.keyExtractor}
         renderItem={this.renderItem}
@@ -58,7 +63,7 @@ export default class TopNewsList extends React.Component<IProps> {
 
   private keyExtractor = (item: INewsItem) => item.id.toString();
 
-  private renderSeparator = () => <View style={{ height: 16 }} />;
+  private renderSeparator = () => <View style={{ height: 32 }} />;
 
   private renderIndicator = () => {
     return <ActivityIndicator />;

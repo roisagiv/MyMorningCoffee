@@ -5,6 +5,8 @@ declare module "*.json" {
 
 declare module 'react-native-paper'
 
+declare module 'json-server'
+
 declare module 'react-native-wkwebview-reborn'
 
 declare module 'detox'

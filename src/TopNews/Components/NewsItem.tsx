@@ -66,9 +66,16 @@ export default class NewsItem extends React.PureComponent<IProps> {
             <Paragraph style={[textStyle, { flex: 1 }]}>{source}</Paragraph>
             <Paragraph style={textStyle}>{time}</Paragraph>
           </CardContent>
-          <View style={[styles.coverImageContainer, { margin: 8 }]}>
-            <FastImage {...imageUrl} style={[imageStyle, styles.coverImage]} />
-          </View>
+          {coverImage || loading ? (
+            <View style={[styles.coverImageContainer, { margin: 8 }]}>
+              <FastImage
+                {...imageUrl}
+                style={[imageStyle, styles.coverImage]}
+              />
+            </View>
+          ) : (
+            <View />
+          )}
           <CardContent>
             <Title numberOfLines={2} style={textStyle}>
               {title}

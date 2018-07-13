@@ -100,14 +100,19 @@ export const NewsStore = types
         item.title = data.title;
         item.url = data.url;
         item.urlToImage = data.cover_image_url;
-        item.publishedAt = data.date_published;
+        item.publishedAt = data.date_published || item.publishedAt;
         item.state = NewsItemModelState.Done;
       } else {
         item.state = NewsItemModelState.Error;
       }
     });
 
+    const afterCreate = () => {
+      topStories();
+    };
+
     return {
+      afterCreate,
       expand,
       topStories
     };

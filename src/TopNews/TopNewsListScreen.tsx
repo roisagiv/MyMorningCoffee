@@ -13,11 +13,6 @@ interface IProps {
   componentId?: string;
 }
 export class TopNewsListScreen extends React.Component<IProps, {}> {
-  public async componentDidAppear() {
-    const s: INewsStore = store;
-    await s.topStories();
-  }
-
   public render() {
     const s: INewsStore = store;
     return (
